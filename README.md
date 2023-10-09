@@ -30,12 +30,12 @@ Before deploying and running the WhatsApp Scripture Chatbot, ensure you have the
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/martcpp/BIBLE_CHATBOT.git
+   git clone https://github.com/martcpp/Bible_chatbot.git
    ```
 
 2. **Install dependencies:**
    ```bash
-   cd BIBLE_CHATBOT
+   cd Bible_chatbot
    pip install -r requirements.txt
    ```
 
@@ -62,7 +62,7 @@ At present, the bot supports the following scriptures:
 
 ## Contributing
 
-Contributions to the **BIBLE_CHATBOT** project are encouraged. If you wish to contribute new features, add support for more scriptures, or make enhancements, please adhere to these guidelines:
+Contributions to the **Bible_chatbot** project are encouraged. If you wish to contribute new features, add support for more scriptures, or make enhancements, please adhere to these guidelines:
 
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix.
@@ -79,4 +79,3 @@ This project is licensed under the [MIT] License - please refer to the [LICENSE]
 ## Contact
 
 For inquiries or support, kindly reach out to [MART] via [agentmart100@gmail.com].
-```
