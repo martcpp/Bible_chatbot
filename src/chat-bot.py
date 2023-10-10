@@ -2,38 +2,39 @@ import openai
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
 
+load_dotenv()
+# Set your OpenAI API key
 openai.api_key = os.getenv("open.API_KEY")
 
+# Function to generate a response
+def generate_response(user_input):
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {
+                    "role": "user",
+                    "content": user_input
+                }
+            ],
+            temperature=0.15,
+            max_tokens=1500  # Adjust the token limit as needed
+        )
 
-import openai
+        return response.choices[0].message["content"].strip()
 
-def Bible_chatbot(prompt):
-    """
-    Generates a response to the given prompt using OpenAI's text-davinci-002 engine.
+    except Exception as e:
+        return str(e)
 
-    Args:
-        prompt (str): The prompt to generate a response for.
-
-    Returns:
-        str: The generated response.
-    """
-  
-    response = openai.Completion.create(
-        engine="text-davinci-002",
-        prompt=prompt,
-        max_tokens=50  # Adjust this value to limit the length of the generated text
-    )
-
-    generated_text = response.choices[0].text
-    
-    return generated_text
-
-
+# Main loop to interact with the user
 if __name__ == "__main__":
-    start = input("enter your search ") 
-    prompt = start
-    response = Bible_chatbot(prompt)
-    print(response)
-  
+    while True:
+        user_input = input("You: ")
+        
+        # Exit the loop if the user enters "exit" or "quit"
+        if user_input.lower() in ["exit", "quit"]:
+            break
+        
+        response = generate_response(user_input)
+        print("ChatGPT:", response)
