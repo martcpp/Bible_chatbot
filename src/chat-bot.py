@@ -31,10 +31,10 @@ def generate_response(user_input):
 if __name__ == "__main__":
     while True:
         user_input = input("You: ")
-        
+        prompt = user_input + "\nbible chatbot:\n"
         # Exit the loop if the user enters "exit" or "quit"
         if user_input.lower() in ["exit", "quit"]:
             break
         
         response = generate_response(user_input)
-        print("ChatGPT:", response)
+        print("bible bot:", response)
