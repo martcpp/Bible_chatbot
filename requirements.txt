@@ -25,5 +25,5 @@ requests==2.31.0
 tqdm==4.66.1
 twilio==8.9.1
 urllib3==2.0.6
-Werkzeug==3.0.0
+Werkzeug==2.2.3
 yarl==1.9.2
