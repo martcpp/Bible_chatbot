@@ -1,4 +1,4 @@
-# Daily Bible Verse Twitter Bot
+# Daily Bible Verse bot
 
 ![GitHub](https://img.shields.io/github/license/martcpp/daily-bible-verse-twitter-bot)
 ![GitHub last commit](https://img.shields.io/github/last-commit/martcpp/daily-bible-verse-twitter-bot)
