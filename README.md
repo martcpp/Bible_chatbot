@@ -1,81 +1,104 @@
-# WhatsApp Scripture Chatbot
+# Daily Bible Verse Twitter Bot
+
+![GitHub](https://img.shields.io/github/license/martcpp/daily-bible-verse-twitter-bot)
+![GitHub last commit](https://img.shields.io/github/last-commit/martcpp/daily-bible-verse-twitter-bot)
+
+A Python script to automate posting daily Bible verses, explanations, and prayers on Twitter.
 
 ## Overview
 
-The **WhatsApp Scripture Chatbot** is a Python-based chatbot designed to facilitate the reading and explanation of scriptures from the bible. It utilizes the WhatsApp Business API to allow users to interact with the bot through WhatsApp. Users can send scripture references or questions, and the chatbot responds with explanations or references from the scriptures.
+This project aims to create a Twitter bot that automatically posts daily Bible verses along with explanations and prayers. It utilizes Python's asyncio library for asynchronous execution and interacts with the Twitter API for posting tweets.
 
 ## Features
 
-- Interpretation of scriptures from the bible.
-- Explanation of selected scriptures.
-- Support for user queries and questions.
-- Seamless integration with WhatsApp for user interaction.
-- Extensibility to incorporate additional scriptures and features.
-
-## Prerequisites
-
-Before deploying and running the WhatsApp Scripture Chatbot, ensure you have the following prerequisites in place:
-
-1. **WhatsApp Business Account:** Create or convert a WhatsApp Business Account for your bot.
-
-2. **Phone Number with SIM Card:** You'll need a phone number with a functional SIM card capable of receiving SMS or voice calls for verification during the WhatsApp Business API setup.
-
-3. **Server or Hosting:** Set up a server or utilize cloud hosting services such as AWS, Google Cloud, Azure, or others to host your bot's code and the WhatsApp Business API.
-
-4. **WhatsApp Business API Access:** Apply for access to the WhatsApp Business API through WhatsApp's official Business API providers.
-
-5. **Programming Language and Dependencies:** The bot is constructed using Python and relies on the Flask framework to handle incoming WhatsApp messages and provide scripture explanations.
-
-## Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/martcpp/Bible_chatbot.git
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   cd Bible_chatbot
-   pip install -r requirements.txt
-   ```
-
-3. **Configure WhatsApp Business API:** Follow the instructions provided by WhatsApp to configure and set up the WhatsApp Business API on your server.
-
-4. **Set up environment variables:** Create a `.env` file and define the necessary environment variables, including your WhatsApp API credentials.
-
-5. **Start the bot:**
-   ```bash
-   cd /src/python chat-bot.py
-   ```
+- Generates a daily Bible verse reference.
+- Retrieves the verse text, explanation, and prayer using external modules.
+- Posts daily verse, explanation, and prayer as separate tweets.
+- Introduces a delay between tweets to avoid hitting Twitter's rate limits.
 
 ## Usage
 
-- Users can send scripture references or questions to the bot via WhatsApp.
-- The bot interprets the input and provides explanations or references from the supported scriptures.
-- Customize the bot's responses and add additional scriptures as required within the code.
+1. Clone the repository:
 
-## Supported Scriptures
+    ```bash
+    git clone https://github.com/martcpp/Bible_chatbot.git
+    ```
 
-At present, the bot supports the following scriptures:
+2. Install dependencies:
 
-- []
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Set up Twitter API credentials in `.env or rename .env-example to .env`.
+
+4. Run the script:
+
+    ```bash
+    python main.py
+    ```
+
+## Configuration
+
+- `.env`: Contains Twitter API credentials. Replace placeholders with your actual credentials.
+
+
+# Daily Bible Verse Twitter Bot Dockerized
+
+This Dockerized Python script automatically posts daily Bible verses, explanations, and prayers on Twitter.
+
+## Usage
+
+### 1. Clone the Repository
+
+Clone the repository to your local machine:
+
+```
+git clone https://github.com/your_username/daily-bible-verse-twitter-bot-dockerized.git
+```
+
+### 3. Build the Docker Image
+
+Build the Docker image using the provided Dockerfile:
+
+```
+cd BIBLE_CHATBOT
+docker build -t daily-bible-bot .
+```
+
+### 4. Run the Docker Container
+
+Run the Docker container with the following command:
+
+```
+docker run -d daily-bible-bot
+```
 
 ## Contributing
 
-Contributions to the **Bible_chatbot** project are encouraged. If you wish to contribute new features, add support for more scriptures, or make enhancements, please adhere to these guidelines:
+Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Implement your changes.
-4. Create relevant tests if applicable.
-5. Ensure that existing tests pass.
-6. Commit your changes and push them to your fork.
-7. Submit a pull request.
+2. Create a new branch (`git checkout -b feature/new-feature`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add new feature'`).
+5. Push to the branch (`git push origin feature/new-feature`).
+6. Create a new Pull Request.
 
 ## License
 
-This project is licensed under the [MIT] License - please refer to the [LICENSE](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt) file for further details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- Thanks to the creators of the `tweepy` and `meta ai api` modules for providing the functionality to generate Bible verses and explanations.
+- Special thanks to [Twitter](https://twitter.com) for providing the API to interact with the platform.
 
 ## Contact
 
-For inquiries or support, kindly reach out to [MART] via [agentmart100@gmail.com].
+For any questions or suggestions, feel free to contact the project maintainer:
+
+Your Name  
+Email: mordecaiemmanueletukudo@gmail.com  
+Twitter: [@biblebot](https://twitter.com/Martcppdev)
+

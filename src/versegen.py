@@ -31,3 +31,7 @@ def get_daily_verse():
         return text_reference, version, reference
     else:
         print("Failed to fetch data:", response.status_code)
+
+
+if __name__ == "__main__":
+    get_daily_verse()
