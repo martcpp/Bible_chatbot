@@ -32,6 +32,3 @@ def get_daily_verse():
     else:
         print("Failed to fetch data:", response.status_code)
 
-
-if __name__ == "__main__":
-    get_daily_verse()

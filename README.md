@@ -100,5 +100,5 @@ For any questions or suggestions, feel free to contact the project maintainer:
 
 Your Name  
 Email: mordecaiemmanueletukudo@gmail.com  
-Twitter: [@biblebot](https://twitter.com/Martcppdev)
+Twitter: [@biblebot](https://twitter.com/BibleBotAI)
 
