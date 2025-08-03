@@ -1,9 +1,9 @@
-# Daily Bible Verse bot
+# Bible Verse bot
 
-![GitHub](https://img.shields.io/github/license/martcpp/daily-bible-verse-twitter-bot)
-![GitHub last commit](https://img.shields.io/github/last-commit/martcpp/daily-bible-verse-twitter-bot)
+![GitHub](https://img.shields.io/github/license/martcpp/Bible_chatbot)
+![GitHub last commit](https://img.shields.io/github/last-commit/martcpp/Bible_chatbot)
 
-A Python script to automate posting daily Bible verses, explanations, and prayers on Twitter.
+A Python script to automate posting daily Bible verses, explanations, and prayers on Twitter it use ai for agentic apporach bible summarry
 
 ## Overview
 
@@ -13,7 +13,7 @@ This project aims to create a Twitter bot that automatically posts daily Bible v
 
 - Generates a daily Bible verse reference.
 - Retrieves the verse text, explanation, and prayer using external modules.
-- Posts daily verse, explanation, and prayer as separate tweets.
+- Posts daily verse, explanation, and prayer as separate x(twitter).
 - Introduces a delay between tweets to avoid hitting Twitter's rate limits.
 
 ## Usage
