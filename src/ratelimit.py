@@ -22,13 +22,7 @@ if not access_token_secret:
     raise ValueError(
         "ACCESS_TOKEN_SECRET is not set in environment variables or .env file"
     )
-# Initialize the async Tweepy client
-
-# BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAMoWtgEAAAAAK6OKpjWY9xKCIKTPhFVnSMA60uw%3DtL6L0a1aaVwsl4ybDdWsEELgmkLPq0FuWxwtZKm7foV0vs5Jvo'
-# CONSUMER_KEY = 'xpBovtjqxct5dIxcp0820wg1W'
-# CONSUMER_SECRET = 'mRDWSSaU1mvgIYA9wwKoWjo3B4UrNBZF24L3ar6pYINPi7NccJ'
-# ACCESS_TOKEN = '1536417926705778694-EcYZKbt2cmoZaWfcFnoEctSoXOCWwV'
-# ACCESS_TOKEN_SECRET = '2HdV0e8p7USJKef5GoMUtMKLmVLjhcwcpk0AZMM0YWecd'
+# Initialize the async Tweepy client'
 
 
 client = tweepy.Client(

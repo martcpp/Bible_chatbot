@@ -72,13 +72,19 @@ async def create_tweet_dv(text, verse, reference):
     # Use await when calling asynchronous methods
     post = f"{text} \n {reference} - {verse}"
     response = await create_tweet_safely(client, post)
+    if response is None:
+        logger.error("Failed to create daily verse tweet after retries")
+        return
     logger.info(f"Tweet created: https://twitter.com/user/status/{response.data['id']}")
 
 
 async def create_tweet_ep(text):
     # Use await when calling asynchronous methods
-    post = f"{text} #explanation"
+    post = f"{text}"
     response = await create_tweet_safely(client, post)
+    if response is None:
+        logger.error("Failed to create explanation tweet after retries")
+        return
     logger.info(f"Tweet created: https://twitter.com/user/status/{response.data['id']}")
 
 
@@ -86,4 +92,7 @@ async def create_tweet_pp(text):
     # Use await when calling asynchronous methods
     post = f"{text} #prayer"
     response = await create_tweet_safely(client, post)
+    if response is None:
+        logger.error("Failed to create prayer tweet after retries")
+        return
     logger.info(f"Tweet created: https://twitter.com/user/status/{response.data['id']}")
