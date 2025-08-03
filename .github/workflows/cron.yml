@@ -40,7 +40,7 @@ jobs:
           
       - name: Run the bot
         run: |
-          python src/run_bot.py
+          python src/run.py
         env:
           # Twitter/X API credentials
           BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
