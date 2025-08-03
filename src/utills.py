@@ -1,3 +1,8 @@
+import logging
+import os
+import inspect
+
+
 def fallback_response():
     """Return a fallback response in case of API failure"""
     fall_back_message = {
@@ -5,24 +10,38 @@ def fallback_response():
         "Prayer": "Even Jesus made personal supplications: Lord, I give You my worries. Teach me to trust You more each day. Help me to pray with faith and gratitude. I choose peace over panic, knowing You're in control. Amen.",
         "Verse": "Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.",
         "Version": "NIV",
-        "Reference": "Philippians 4:6"
+        "Reference": "Philippians 4:6",
     }
 
     return fall_back_message
 
 
-# if __name__ == "__main__":
-#     print(fallback_response())
-#     print("Fallback response printed successfully.")
-#     exp = fallback_response()['Explanation']
-#     pray = fallback_response()['Prayer']
-#     verse = fallback_response()['Verse']
-#     version = fallback_response()['Version']
-#     reference = fallback_response()['Reference']
-#     print(f"Verse: {verse} - {version} - {reference}")
-#     print(f"Explanation: {exp}")
-#     print(f"Prayer: {pray}")
-    
-#     for key, value in fallback_response().items():
-#         print(f"{key}: {len(value)} characters")
+def logger_setup():
+    """Setup logging configuration using caller’s file name as logger name"""
+
+    # Get the name of the file that called this function (not utils.py)
+    caller_frame = inspect.stack()[1]
+    caller_file_path = caller_frame.filename
+    caller_file_name = os.path.basename(caller_file_path)
+
+    logger = logging.getLogger(caller_file_name)
+    logger.setLevel(logging.INFO)
+
+    if not logger.hasHandlers():
+        formatter = logging.Formatter(
+            "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        )
+
+        file_handler = logging.FileHandler("../bible_ai.log")
+        file_handler.setFormatter(formatter)
+
+        stream_handler = logging.StreamHandler()
+        stream_handler.setFormatter(formatter)
+
+        logger.addHandler(file_handler)
+        logger.addHandler(stream_handler)
+
+    return logger
+
+
 

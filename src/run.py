@@ -1,6 +1,6 @@
 import asyncio
 from bibleAI import bible_verse
-from versegen import *
+from versegen import get_daily_verse
 from bot.twitterbot import create_tweet_dv, create_tweet_ep, create_tweet_pp
 
 
@@ -11,10 +11,11 @@ async def main():
     explanation, prayer = bible_verse(verser)
 
     await create_tweet_dv(text_reference, version, reference)
-    await asyncio.sleep(30)  # Wait for 30 seconds
+    await asyncio.sleep(60)  # Wait for 30 seconds
     await create_tweet_ep(explanation)
-    await asyncio.sleep(30)  # Wait for 30 seconds
+    await asyncio.sleep(60)  # Wait for 30 seconds
     await create_tweet_pp(prayer)
+
 
 if __name__ == "__main__":
     asyncio.run(main())
