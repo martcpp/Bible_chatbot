@@ -1,4 +1,3 @@
-from tweepy.asynchronous import AsyncClient
 from decouple import config
 import tweepy
 from tweepy.errors import TooManyRequests
@@ -26,7 +25,7 @@ if not access_token_secret:
 # Initialize the async Tweepy client
 
 # BEARER_TOKEN = 'AAAAAAAAAAAAAAAAAAAAAMoWtgEAAAAAK6OKpjWY9xKCIKTPhFVnSMA60uw%3DtL6L0a1aaVwsl4ybDdWsEELgmkLPq0FuWxwtZKm7foV0vs5Jvo'
-# CONSUMER_KEY = 'xpBovtjqxct5dIxcp0820wg1W' 
+# CONSUMER_KEY = 'xpBovtjqxct5dIxcp0820wg1W'
 # CONSUMER_SECRET = 'mRDWSSaU1mvgIYA9wwKoWjo3B4UrNBZF24L3ar6pYINPi7NccJ'
 # ACCESS_TOKEN = '1536417926705778694-EcYZKbt2cmoZaWfcFnoEctSoXOCWwV'
 # ACCESS_TOKEN_SECRET = '2HdV0e8p7USJKef5GoMUtMKLmVLjhcwcpk0AZMM0YWecd'
@@ -37,14 +36,14 @@ client = tweepy.Client(
     consumer_key=consumer_key,
     consumer_secret=consumer_secret,
     access_token=access_token,
-    access_token_secret=access_token_secret
+    access_token_secret=access_token_secret,
 )
 
 # me = client.get_me()
 # print(f"Authenticated as: {me}")
 
 try:
-    limit = client.create_tweet(text='asynchronous')
+    limit = client.create_tweet(text="asynchronous")
     print(f"Rate limit status: {limit}")
 except TooManyRequests as e:
     print(f"Rate limit exceeded: {e}")
@@ -52,12 +51,12 @@ except TooManyRequests as e:
     # print(f"Rate limit reset time: {fake}")
     time_t = e.response.headers.get("x-rate-limit-reset")
     print(f"Rate limit will reset at: {time_t}")
-    
+
     now_time = int(time.time())
     wait_time = int(time_t) - now_time
     print(f"Waiting for {wait_time} seconds before retrying...")
 
-    print(f"Rate limit status:")
+    print("Rate limit status:")
     print(f"  Limit: {e.response.headers.get('x-rate-limit-limit')}")
     print(f"  Remaining: {e.response.headers.get('x-rate-limit-remaining')}")
     print(f"  Reset: {e.response.headers.get('x-rate-limit-reset')}")

@@ -10,9 +10,6 @@ import time
 logger = logger_setup()
 
 
-
-
-
 # Ensure all required environment variables are set
 bearer_token = config("BEARER_TOKEN") or os.getenv("BEARER_TOKEN")
 if not bearer_token:
@@ -42,12 +39,12 @@ client = AsyncClient(
 )
 
 
-async def create_tweet_safely(client, text,max_retries=3):
+async def create_tweet_safely(client, text, max_retries=3):
     for attempt in range(1, max_retries + 1):
         try:
             logger.info(f"Attempt {attempt} to create tweet...")
             return await client.create_tweet(text=text)
-        
+
         except TooManyRequests as e:
             reset_timestamp = e.response.headers.get("x-rate-limit-reset")
             current_timestamp = int(time.time())
@@ -58,7 +55,9 @@ async def create_tweet_safely(client, text,max_retries=3):
                 wait_time = attempt * 60  # fallback to increasing wait time
 
             wait_time = max(wait_time, 60)
-            logger.warning(f"Rate limit hit, waiting {wait_time} seconds before retrying...")
+            logger.warning(
+                f"Rate limit hit, waiting {wait_time} seconds before retrying..."
+            )
             await asyncio.sleep(wait_time)
 
         except Exception as e:
@@ -67,7 +66,6 @@ async def create_tweet_safely(client, text,max_retries=3):
 
     logger.error("All attempts to tweet failed.")
     return None
-
 
 
 async def create_tweet_dv(text, verse, reference):
@@ -89,4 +87,3 @@ async def create_tweet_pp(text):
     post = f"{text} #prayer"
     response = await create_tweet_safely(client, post)
     logger.info(f"Tweet created: https://twitter.com/user/status/{response.data['id']}")
-

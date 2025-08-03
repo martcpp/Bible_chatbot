@@ -53,7 +53,6 @@ def bible_verse(verse):
 
     # Check if content is too long and retry with shorter prompts
     if len(exp_text) > 280 or len(prayer_text) > 280:
-
         if len(exp_text) > 280:
             explanation = get_ai_response(short_explanation)
             if explanation:
