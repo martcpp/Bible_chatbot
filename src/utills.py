@@ -42,3 +42,15 @@ def logger_setup():
         logger.addHandler(stream_handler)
 
     return logger
+
+
+def check_quotes(text):
+    """Check if text starts or ends with quotes and remove them"""
+    if not text:
+        return ""
+    text = text.strip()
+    if text.startswith('"'):
+        text = text.strip('"')
+    if text.endswith('"'):
+        text = text.strip('"')
+    return text
