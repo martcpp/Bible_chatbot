@@ -51,6 +51,10 @@ def bible_verse(verse):
     exp_text = explanation.get("message", "")
     prayer_text = prayer_point.get("message", "")
 
+    if exp_text.startswith('"') or prayer_text.startswith('"'):
+        exp_text = exp_text.strip('"')
+        prayer_text = prayer_text.strip('"')
+
     # Check if content is too long and retry with shorter prompts
     if len(exp_text) > 280 or len(prayer_text) > 280:
         if len(exp_text) > 280:
