@@ -82,7 +82,7 @@ We reserve the right to suspend or terminate your access to the Service if you v
 ## 10. Contact
 
 For any questions or concerns about these Terms, please contact us at:
-📧 \[[mordecaiemmanueletukudo@gmail.com](mailto:your-email@example.com)]
+📧 \[[mordecaiemmanueletukudo@gmail.com](mailto:mordecaiemmanueletukudo@gmail.com)]
 
 ---
 

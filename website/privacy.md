@@ -81,6 +81,6 @@ We may update this Privacy Policy from time to time. Changes will be posted on t
 ## 9. Contact Us
 
 If you have any questions about this Privacy Policy or how we handle your data, please contact us at:
-📧 \[[mordecaiemmanueletukudo@gmail.com](mailto:your-email@example.com)]
+📧 \[[mordecaiemmanueletukudo@gmail.com](mailto:mordecaiemmanueletukudo@gmail.com)]
 
 ---
