@@ -5,7 +5,7 @@ async function loadMarkdownContent(filename, contentElementId, loadingElementId,
     const errorElement = document.getElementById(errorElementId);
 
     try {
-        const path = `website/./${filename}`;
+        const path = filename;
         const response = await fetch(path);
         
         if (!response.ok) {
