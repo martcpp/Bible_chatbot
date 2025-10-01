@@ -70,12 +70,13 @@ def bible_verse(verse):
         prayer_text = fall_back["Prayer"]
     return exp_text, prayer_text
 
+
 if __name__ == "__main__":
     verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
     explanation, prayer = bible_verse(verse)
     print("Explanation1:", explanation)
     print("Prayer1:", prayer)
-    
+
     verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
     explanation, prayer = bible_verse(verse)
     print("Explanation2:", explanation)
