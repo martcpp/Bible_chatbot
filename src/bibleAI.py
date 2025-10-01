@@ -34,7 +34,7 @@ def bible_verse(verse):
 
     # Primary prompts - more spiritual and engaging
     explanation_prompt = f"""Write a powerful, heart-touching explanation of "{verse}" that makes people feel God's love personally. Connect it to real-life struggles, speak with warmth and hope, make it deeply encouraging and relatable. Use simple but profound language that touches both heart and soul. Keep it under 270 characters and make people want to share it. with some nice hashtags."""
-    prayer_prompt = f"""Create a bold, faith-filled prayer based on "{verse}" that people can declare over their lives with confidence. Make it specific, personal, and powerful - like speaking directly to God as a loving Father. Include breakthrough, blessing, and transformation. Write it as a declaration of faith under 270 characters that builds expectation for God's goodness."""
+    prayer_prompt = f"""faith filled, spirit filled prayer based on "{verse}" that people can declare over their lives with confidence. Make it specific, personal, and powerful - like speaking directly to God as a loving Father. Include breakthrough, blessing, and transformation. Write it as a declaration of faith under 270 characters that builds expectation for God's goodness."""
 
     # Backup shorter prompts
     short_explanation = f"""Explain "{verse}" in a way that makes people feel God's personal love and care for them. Make it encouraging, hopeful, and relatable to daily life. Use warm, simple language that touches the heart. Under 260 characters. with some nice hashtags."""
@@ -69,3 +69,14 @@ def bible_verse(verse):
     if len(prayer_text) > 280:
         prayer_text = fall_back["Prayer"]
     return exp_text, prayer_text
+
+if __name__ == "__main__":
+    verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
+    explanation, prayer = bible_verse(verse)
+    print("Explanation1:", explanation)
+    print("Prayer1:", prayer)
+    
+    verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
+    explanation, prayer = bible_verse(verse)
+    print("Explanation2:", explanation)
+    print("Prayer2:", prayer)
