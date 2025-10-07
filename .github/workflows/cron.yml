@@ -9,7 +9,7 @@ jobs:
   run-bot:
     runs-on: ubuntu-latest
     timeout-minutes: 15  # Prevent hanging jobs
-    if: github.ref == 'refs/heads/main'  # Only run on main branch
+    # if: github.ref == 'refs/heads/main'  # Only run on main branch
     
     steps:
       - name: Checkout repository
@@ -74,7 +74,7 @@ jobs:
     #     if: always()
     #     run: |
     #       if [ ${{ job.status }} == 'success' ]; then
-    #         echo "✅ Bot ran successfully at $(date)"
+    #         echo " Bot ran successfully at $(date)"
     #       else
-    #         echo "❌ Bot failed at $(date)"
+    #         echo "Bot failed at $(date)"
     #       fi
