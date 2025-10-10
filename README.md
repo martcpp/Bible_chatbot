@@ -3,6 +3,8 @@
 ![GitHub](https://img.shields.io/github/license/martcpp/Bible_chatbot)
 ![GitHub last commit](https://img.shields.io/github/last-commit/martcpp/Bible_chatbot)
 
+https://github.com/martcpp/Bible_chatbot
+
 A Python script to automate posting daily Bible verses, explanations, and prayers on Twitter it use ai for agentic apporach bible summarry
 
 ## Overview
@@ -92,7 +94,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgements
 
 - Thanks to the creators of the `tweepy` and `meta ai api` modules for providing the functionality to generate Bible verses and explanations.
-- Special thanks to [Twitter](https://twitter.com) for providing the API to interact with the platform.
+- Special thanks to [Twitter](https://x.com) for providing the API to interact with the platform.
 
 ## Contact
 
@@ -100,5 +102,5 @@ For any questions or suggestions, feel free to contact the project maintainer:
 
 Your Name  
 Email: mordecaiemmanueletukudo@gmail.com  
-Twitter: [@biblebot](https://twitter.com/BibleBotAI)
+Twitter: [@online_pst247](https://x.com/online_pst247)
 
