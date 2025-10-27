@@ -1,8 +1,10 @@
 from meta_ai_api import MetaAI
+from openai import OpenAI
 import time
 from utills import fallback_response, logger_setup, check_quotes
 
-ai = MetaAI()
+# ai = MetaAI()
+client = OpenAI()
 
 
 logger = logger_setup()
@@ -15,7 +17,10 @@ def get_ai_response(prompt, max_retries=3, retry_delay=1):
     """Get AI response with retry logic"""
     for attempt in range(max_retries):
         try:
-            response = ai.prompt(message=prompt)
+            response = client.responses.create(
+                model="gpt-5",
+                input = prompt
+            )
             if response and "message" in response:
                 return response
             logger.error(f"Invalid response format, attempt {attempt + 1}")
@@ -72,12 +77,21 @@ def bible_verse(verse):
 
 
 if __name__ == "__main__":
-    verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
-    explanation, prayer = bible_verse(verse)
-    print("Explanation1:", explanation)
-    print("Prayer1:", prayer)
+    # verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
+    # explanation, prayer = bible_verse(verse)
+    # print("Explanation1:", explanation)
+    # print("Prayer1:", prayer)
 
-    verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
-    explanation, prayer = bible_verse(verse)
-    print("Explanation2:", explanation)
-    print("Prayer2:", prayer)
+    # verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
+    # explanation, prayer = bible_verse(verse)
+    # print("Explanation2:", explanation)
+    # print("Prayer2:", prayer)
+    from openai import OpenAI
+    client = OpenAI()
+
+    response = client.responses.create(
+    model="gpt-5",
+    input="Write a short bedtime story about a unicorn."
+    )
+
+    print(response.output_text)
