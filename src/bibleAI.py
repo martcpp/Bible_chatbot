@@ -117,6 +117,20 @@ if __name__ == "__main__":
         stop=None
     )
 
+    response = client.chat.with_raw_response.completions.create(
+        model="qwen/qwen3-32b",
+        messages=[
+            {
+                "role": "user",
+                "content": "you are a helpful assistant that translates English to French. Please translate the following sentence: 'Hello, how are you?'"
+            }
+        ],
+        temperature=0.6,
+        max_completion_tokens=4096,
+        top_p=0.95,
+        reasoning_effort="default",
+        stop=None
+        )
 
-
-    print(completion)
+    # print(response[response.keys()[0]])
+    print("Response from AI: ", completion.choices[0].message["content"])
