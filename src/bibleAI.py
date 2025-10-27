@@ -1,10 +1,13 @@
 from meta_ai_api import MetaAI
 from openai import OpenAI
+from groq import Groq
+import os
 import time
+from decouple import config
 from utills import fallback_response, logger_setup, check_quotes
 
-# ai = MetaAI()
-client = OpenAI()
+api_key = config("API_KEY") or os.getenv("AI_SECRET_KEY")
+# client = OpenAI(api_key=api_key)
 
 
 logger = logger_setup()
@@ -86,12 +89,34 @@ if __name__ == "__main__":
     # explanation, prayer = bible_verse(verse)
     # print("Explanation2:", explanation)
     # print("Prayer2:", prayer)
-    from openai import OpenAI
-    client = OpenAI()
+    # from openai import OpenAI
+    # client = OpenAI()
+    # print(api_key)
+    
+    # response = client.responses.create(
+    # model="gpt-5",
+    # input="Write a short bedtime story about a unicorn."
+    # )
+    # # print("Response from AI: ", response)
+    # print(response.output_text)
+    
 
-    response = client.responses.create(
-    model="gpt-5",
-    input="Write a short bedtime story about a unicorn."
+    client = Groq(api_key=api_key)
+    completion = client.chat.completions.create(
+        model="qwen/qwen3-32b",
+        messages=[
+            {
+                "role": "user",
+                "content": "you are a helpful assistant that translates English to French. Please translate the following sentence: 'Hello, how are you?'"
+            }
+        ],
+        temperature=0.6,
+        max_completion_tokens=4096,
+        top_p=0.95,
+        reasoning_effort="default",
+        stop=None
     )
 
-    print(response.output_text)
+
+
+    print(completion)
