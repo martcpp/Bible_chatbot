@@ -1,13 +1,14 @@
 from meta_ai_api import MetaAI
 from openai import OpenAI
 from groq import Groq
+from google import genai
 import os
 import time
 from decouple import config
 from utills import fallback_response, logger_setup, check_quotes
 
-api_key = config("API_KEY") or os.getenv("AI_SECRET_KEY")
-# client = OpenAI(api_key=api_key)
+api_key = config("GEMINI_API_KEY") or os.getenv("GEMINI_API_KEY")
+client = genai.Client(api_key=api_key)
 
 
 logger = logger_setup()
@@ -20,12 +21,12 @@ def get_ai_response(prompt, max_retries=3, retry_delay=1):
     """Get AI response with retry logic"""
     for attempt in range(max_retries):
         try:
-            response = client.responses.create(
-                model="gpt-5",
-                input = prompt
+            response = client.models.generate_content(
+                model="gemini-2.0-flash-001",  #"gemini-2.5-pro",
+                contents= prompt
             )
-            if response and "message" in response:
-                return response
+            if response.text:
+                return response.text
             logger.error(f"Invalid response format, attempt {attempt + 1}")
         except Exception as e:
             logger.error(f"API error on attempt {attempt + 1}: {e}")
@@ -56,20 +57,20 @@ def bible_verse(verse):
         logger.warning("Failed to get AI response, returning fallback")
         return fall_back["Explanation"], fall_back["Prayer"]
 
-    exp_text = check_quotes(explanation.get("message", ""))
-    prayer_text = check_quotes(prayer_point.get("message", ""))
+    exp_text = check_quotes(explanation)
+    prayer_text = check_quotes(prayer_point)
 
     # Check if content is too long and retry with shorter prompts
     if len(exp_text) > 280 or len(prayer_text) > 280:
         if len(exp_text) > 280:
             explanation = get_ai_response(short_explanation)
             if explanation:
-                exp_text = check_quotes(explanation.get("message", ""))
+                exp_text = check_quotes(explanation)
 
         if len(prayer_text) > 272:
             prayer_point = get_ai_response(short_prayer)
             if prayer_point:
-                prayer_text = check_quotes(prayer_point.get("message", ""))
+                prayer_text = check_quotes(prayer_point)
 
     # Final length check
     if len(exp_text) > 280:
@@ -80,57 +81,18 @@ def bible_verse(verse):
 
 
 if __name__ == "__main__":
-    # verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
-    # explanation, prayer = bible_verse(verse)
-    # print("Explanation1:", explanation)
-    # print("Prayer1:", prayer)
+    verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
+    explanation, prayer = bible_verse(verse)
+    print("Explanation1:", explanation)
+    print("Prayer1:", prayer)
 
-    # verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
-    # explanation, prayer = bible_verse(verse)
-    # print("Explanation2:", explanation)
-    # print("Prayer2:", prayer)
-    # from openai import OpenAI
-    # client = OpenAI()
-    # print(api_key)
+    verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
+    explanation, prayer = bible_verse(verse)
+    print("Explanation2:", explanation)
+    print("Prayer2:", prayer)
     
-    # response = client.responses.create(
-    # model="gpt-5",
-    # input="Write a short bedtime story about a unicorn."
+    # resp = client.models.generate_content(
+    #     model="gemini-2.5-pro",
+    #     contents= verse
     # )
-    # # print("Response from AI: ", response)
-    # print(response.output_text)
-    
-
-    client = Groq(api_key=api_key)
-    completion = client.chat.completions.create(
-        model="qwen/qwen3-32b",
-        messages=[
-            {
-                "role": "user",
-                "content": "you are a helpful assistant that translates English to French. Please translate the following sentence: 'Hello, how are you?'"
-            }
-        ],
-        temperature=0.6,
-        max_completion_tokens=4096,
-        top_p=0.95,
-        reasoning_effort="default",
-        stop=None
-    )
-
-    response = client.chat.with_raw_response.completions.create(
-        model="qwen/qwen3-32b",
-        messages=[
-            {
-                "role": "user",
-                "content": "you are a helpful assistant that translates English to French. Please translate the following sentence: 'Hello, how are you?'"
-            }
-        ],
-        temperature=0.6,
-        max_completion_tokens=4096,
-        top_p=0.95,
-        reasoning_effort="default",
-        stop=None
-        )
-
-    # print(response[response.keys()[0]])
-    print("Response from AI: ", completion.choices[0].message["content"])
+    # print(resp.text)
