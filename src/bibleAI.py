@@ -19,8 +19,7 @@ def get_ai_response(prompt, max_retries=3, retry_delay=1):
     for attempt in range(max_retries):
         try:
             response = client.models.generate_content(
-                model="gemini-2.0-flash-001",  #"gemini-2.5-pro",
-                contents= prompt
+                model="gemini-2.0-flash-001", contents=prompt  # "gemini-2.5-pro",
             )
             if response.text:
                 return response.text
@@ -75,6 +74,7 @@ def bible_verse(verse):
     if len(prayer_text) > 280:
         prayer_text = fall_back["Prayer"]
     return exp_text, prayer_text
+
 
 # use for testing reasons
 # if __name__ == "__main__":
