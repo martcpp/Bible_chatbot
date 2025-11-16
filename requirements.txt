@@ -2,3 +2,6 @@ python-decouple
 google-genai
 requests
 tweepy
+aiohttp 
+async_lru 
+oauthlib
