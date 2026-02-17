@@ -77,13 +77,13 @@ def bible_verse(verse):
 
 
 # use for testing reasons
-# if __name__ == "__main__":
-#     verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
-#     explanation, prayer = bible_verse(verse)
-#     print("Explanation1:", explanation)
-#     print("Prayer1:", prayer)
+if __name__ == "__main__":
+    verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
+    explanation, prayer = bible_verse(verse)
+    print("Explanation1:", explanation)
+    print("Prayer1:", prayer)
 
-#     verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
-#     explanation, prayer = bible_verse(verse)
-#     print("Explanation2:", explanation)
-#     print("Prayer2:", prayer)
+    verse = "For God so loved the world that whoever believes in him will not perish but have everlasting life. - John 3:16 - NIV"
+    explanation, prayer = bible_verse(verse)
+    print("Explanation2:", explanation)
+    print("Prayer2:", prayer)
