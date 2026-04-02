@@ -1,0 +1,15 @@
+[project]
+name = "bible-chatbot"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiohttp>=3.13.5",
+    "async-lru>=2.3.0",
+    "google-genai>=1.70.0",
+    "oauthlib>=3.3.1",
+    "python-decouple>=3.8",
+    "requests>=2.33.1",
+    "tweepy>=4.16.0",
+]
